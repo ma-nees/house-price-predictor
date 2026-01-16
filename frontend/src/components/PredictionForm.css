@@ -1,0 +1,576 @@
+/* PredictionForm Styles */
+
+.prediction-form-container {
+  width: 100%;
+}
+
+.form-card {
+  background: var(--card-bg, linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%));
+  border-radius: 1.5rem;
+  padding: 2rem;
+  border: 1px solid var(--glass-border, rgba(148, 163, 184, 0.1));
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .form-card {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form-card.success-pulse {
+  animation: successPulse 1s ease;
+}
+
+@keyframes successPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+  50% { box-shadow: 0 0 30px 10px rgba(34, 197, 94, 0.3); }
+}
+
+/* Header */
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-icon {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.icon-circle {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.icon-glow {
+  position: absolute;
+  inset: -0.5rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.form-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0 0 0.5rem 0;
+}
+
+.form-subtitle {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Form Content */
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Input Groups */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.label-icon {
+  font-size: 1rem;
+}
+
+/* Location Input */
+.location-input-wrapper {
+  position: relative;
+}
+
+.location-input {
+  width: 100%;
+  padding: 0.875rem 1rem 0.875rem 2.75rem;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0.75rem;
+  color: #f1f5f9;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.location-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.location-input::placeholder {
+  color: #64748b;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+/* Suggestions Dropdown */
+.suggestions-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #1e293b;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0.75rem;
+  margin-top: 0.5rem;
+  max-height: 250px;
+  overflow: hidden;
+  z-index: 50;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  background: rgba(30, 41, 59, 0.5);
+}
+
+.dropdown-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dropdown-count {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.dropdown-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.suggestion-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.suggestion-item:hover {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.suggestion-arrow {
+  color: #64748b;
+  transition: transform 0.15s ease;
+}
+
+.suggestion-item:hover .suggestion-arrow {
+  transform: translateX(3px);
+  color: #3b82f6;
+}
+
+/* Input Grid */
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Number Input */
+.number-input-wrapper {
+  position: relative;
+}
+
+.number-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0.75rem;
+  color: #f1f5f9;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.number-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.number-input::placeholder {
+  color: #64748b;
+}
+
+.number-input-wrapper.input-error .number-input {
+  border-color: #ef4444;
+}
+
+.input-unit {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* Slider */
+.slider-container {
+  margin-top: 0.75rem;
+}
+
+.sqft-slider {
+  width: 100%;
+  height: 6px;
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 3px;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.sqft-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.sqft-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.slider-label {
+  color: #64748b;
+}
+
+.slider-value {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+/* BHK Quick Select */
+.bhk-quick-select {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.bhk-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0.5rem;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 3rem;
+}
+
+.bhk-button:hover {
+  border-color: #3b82f6;
+  color: #e2e8f0;
+}
+
+.bhk-button-active {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  border-color: transparent;
+  color: #fff;
+}
+
+.bhk-number {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.bhk-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Input Hints */
+.input-hint {
+  font-size: 0.8rem;
+  margin: 0.25rem 0 0 0;
+}
+
+.input-hint.error {
+  color: #f87171;
+}
+
+/* Form Status */
+.form-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(30, 41, 59, 0.4);
+  border-radius: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.status-success,
+.status-pending {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.status-success {
+  color: #4ade80;
+}
+
+.status-pending {
+  color: #94a3b8;
+}
+
+.locations-count {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.clear-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(100, 116, 139, 0.2);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0.75rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-button:hover {
+  background: rgba(100, 116, 139, 0.3);
+  color: #e2e8f0;
+}
+
+.predict-button {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  border: none;
+  border-radius: 0.75rem;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.predict-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+}
+
+.predict-button.predict-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.predict-button.predict-loading {
+  opacity: 0.8;
+}
+
+.button-icon {
+  font-size: 1.1rem;
+}
+
+/* Spinner */
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Quick Stats */
+.quick-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.1);
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.stat-icon {
+  font-size: 0.9rem;
+}
+
+/* ==================== */
+/* Light Theme Overrides */
+/* ==================== */
+
+[data-theme="light"] .form-title {
+  color: #0f172a;
+}
+
+[data-theme="light"] .form-subtitle {
+  color: #64748b;
+}
+
+[data-theme="light"] .input-label {
+  color: #334155;
+}
+
+[data-theme="light"] .location-input,
+[data-theme="light"] .number-input {
+  background: rgba(241, 245, 249, 0.8);
+  border-color: rgba(148, 163, 184, 0.3);
+  color: #0f172a;
+}
+
+[data-theme="light"] .location-input::placeholder,
+[data-theme="light"] .number-input::placeholder {
+  color: #94a3b8;
+}
+
+[data-theme="light"] .suggestions-dropdown {
+  background: #ffffff;
+  border-color: rgba(148, 163, 184, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .dropdown-header {
+  background: #f8fafc;
+}
+
+[data-theme="light"] .suggestion-item {
+  color: #334155;
+}
+
+[data-theme="light"] .suggestion-item:hover {
+  background: rgba(59, 130, 246, 0.08);
+}
+
+[data-theme="light"] .bhk-button {
+  background: rgba(241, 245, 249, 0.8);
+  border-color: rgba(148, 163, 184, 0.3);
+  color: #64748b;
+}
+
+[data-theme="light"] .bhk-button:hover {
+  color: #334155;
+}
+
+[data-theme="light"] .form-status {
+  background: rgba(241, 245, 249, 0.8);
+}
+
+[data-theme="light"] .status-pending .status-text {
+  color: #64748b;
+}
+
+[data-theme="light"] .clear-button {
+  background: rgba(241, 245, 249, 0.8);
+  color: #64748b;
+}
+
+[data-theme="light"] .clear-button:hover {
+  background: rgba(226, 232, 240, 0.8);
+  color: #334155;
+}
+
+[data-theme="light"] .quick-stats {
+  border-top-color: rgba(148, 163, 184, 0.2);
+}

@@ -1,0 +1,105 @@
+{
+  "name": "AI Property Price Predictor",
+  "short_name": "Property Predictor",
+  "description": "AI-powered property price prediction with real-time market analysis",
+  "theme_color": "#0f172a",
+  "background_color": "#0f172a",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Desktop view of Property Predictor"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "375x812",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile view of Property Predictor"
+    }
+  ],
+  "categories": ["business", "finance", "productivity"],
+  "shortcuts": [
+    {
+      "name": "New Prediction",
+      "short_name": "Predict",
+      "description": "Start a new property price prediction",
+      "url": "/?source=pwa-shortcut"
+    },
+    {
+      "name": "Market Insights",
+      "short_name": "Insights",
+      "description": "View market trends and analysis",
+      "url": "/insights?source=pwa-shortcut"
+    }
+  ],
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+property",
+      "url": "/?property=%s"
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "file_handlers": [
+    {
+      "action": "/upload",
+      "accept": {
+        "application/json": [".json", ".geojson"]
+      }
+    }
+  ],
+  "permissions": [
+    "clipboard-write",
+    "clipboard-read"
+  ],
+  "display_override": ["window-controls-overlay", "minimal-ui"],
+  "prefer_related_applications": false,
+  "related_applications": []
+}

@@ -1,0 +1,29 @@
+{
+  "recommendations": [
+    // Python Backend
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.debugpy",
+    
+    // JavaScript/React Frontend
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "dsznajder.es7-react-js-snippets",
+    "bradlc.vscode-tailwindcss",
+    
+    // API Testing
+    "rangav.vscode-thunder-client",
+    
+    // General Development
+    "formulahendry.code-runner",
+    "ritwickdey.liveserver",
+    "github.copilot",
+    "github.copilot-chat",
+    
+    // Git
+    "eamodio.gitlens",
+    
+    // Formatting
+    "rvest.vs-code-prettier-eslint"
+  ]
+}

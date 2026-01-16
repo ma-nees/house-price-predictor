@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Icons</title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Right-click to save each icon</h2>
+    
+    <div>
+        <h3>192x192 Icon</h3>
+        <canvas id="icon192" width="192" height="192"></canvas>
+        <button onclick="downloadCanvas('icon192', 'icon-192.png')">Download 192px</button>
+    </div>
+    
+    <div>
+        <h3>512x512 Icon</h3>
+        <canvas id="icon512" width="512" height="512"></canvas>
+        <button onclick="downloadCanvas('icon512', 'icon-512.png')">Download 512px</button>
+    </div>
+
+    <script>
+        function drawIcon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#10b981';
+            ctx.fillRect(0, 0, size, size);
+            
+            // House icon
+            ctx.fillStyle = '#ffffff';
+            const houseSize = size * 0.6;
+            const houseX = (size - houseSize) / 2;
+            const houseY = (size - houseSize) / 2;
+            
+            // House body
+            ctx.fillRect(houseX, houseY + houseSize * 0.3, houseSize, houseSize * 0.7);
+            
+            // Roof
+            ctx.beginPath();
+            ctx.moveTo(houseX, houseY + houseSize * 0.3);
+            ctx.lineTo(size / 2, houseY);
+            ctx.lineTo(houseX + houseSize, houseY + houseSize * 0.3);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Door
+            ctx.fillStyle = '#059669';
+            const doorWidth = houseSize * 0.2;
+            const doorHeight = houseSize * 0.4;
+            ctx.fillRect(
+                size / 2 - doorWidth / 2,
+                houseY + houseSize * 0.6,
+                doorWidth,
+                doorHeight
+            );
+        }
+        
+        function downloadCanvas(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // Draw icons on load
+        window.onload = function() {
+            drawIcon('icon192', 192);
+            drawIcon('icon512', 512);
+        };
+    </script>
+</body>
+</html>
