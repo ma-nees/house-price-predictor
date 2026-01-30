@@ -2,6 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./PredictionForm.css"; // Import CSS file
 
+// API URL from environment variable (fallback to localhost for development)
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:5000";
+
 export default function PredictionForm({ setPrice, setInputs }) {
   const [locations, setLocations] = useState([]);
   const [location, setLocation] = useState("");
@@ -15,7 +18,7 @@ export default function PredictionForm({ setPrice, setInputs }) {
   // Fetch locations from backend
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:5000/locations")
+      .get(`${API_URL}/locations`)
       .then((res) => {
         setLocations(res.data);
         setFilteredLocations(res.data);
@@ -89,7 +92,7 @@ export default function PredictionForm({ setPrice, setInputs }) {
     try {
       setLoading(true);
 
-      const res = await axios.post("http://127.0.0.1:5000/predict", {
+      const res = await axios.post(`${API_URL}/predict`, {
         location: location,
         total_sqft: sqft,
         bhk: bhk,
