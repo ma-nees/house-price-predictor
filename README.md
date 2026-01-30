@@ -1,12 +1,13 @@
 # 🏠 House Price Predictor
 
 A full-stack machine learning application that predicts house prices in Bangalore, India. Built with a Flask backend serving a trained ML model and a modern React frontend with beautiful UI.
-https://house-price-predictor-black.vercel.app/
+
 ![House Price Predictor](https://img.shields.io/badge/ML-House%20Price%20Prediction-green)
 ![Python](https://img.shields.io/badge/Python-3.8+-blue)
 ![React](https://img.shields.io/badge/React-19-61DAFB)
 ![Flask](https://img.shields.io/badge/Flask-3.0-black)
 
+https://house-price-predictor-black.vercel.app/
 ## ✨ Features
 
 - **🤖 ML-Powered Predictions**: Trained model predicting house prices based on location, area, and BHK
