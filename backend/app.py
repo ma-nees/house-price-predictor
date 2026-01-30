@@ -3,17 +3,21 @@ from flask_cors import CORS
 import pickle
 import json
 import numpy as np
+import os
 
 app = Flask(__name__)
-CORS(app)  # 🔥 allow React (5173) to talk to Flask (5000)
+CORS(app)  # 🔥 allow React frontend to talk to Flask API
 
 # -----------------------------
 # Load model and columns
 # -----------------------------
-with open("model/house_model.pkl", "rb") as f:
+# Get the directory where app.py is located
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+with open(os.path.join(BASE_DIR, "model/house_model.pkl"), "rb") as f:
     model = pickle.load(f)
 
-with open("model/columns.json", "r") as f:
+with open(os.path.join(BASE_DIR, "model/columns.json"), "r") as f:
     columns = json.load(f)
 
 # -----------------------------
@@ -72,4 +76,5 @@ def predict():
 # Run server
 # -----------------------------
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
